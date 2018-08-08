@@ -27,6 +27,7 @@
   <remove-project name="platform/hardware/qcom/display" />
   <remove-project name="platform/hardware/qcom/media" />
   <remove-project name="platform/hardware/qcom/power" />
+  <remove-project name="platform/hardware/qcom/wlan" />
   <remove-project name="platform/hardware/ril" />
   <!-- <remove-project name="platform/packages/apps/Camera2" />
   <remove-project name="platform/packages/apps/DeskClock" />
@@ -36,7 +37,6 @@
   <remove-project name="platform/packages/apps/Messaging" /> -->
   <remove-project name="platform/packages/apps/Settings" />
   <!-- <remove-project name="platform/packages/inputmethods/LatinIME" /> -->
-  <remove-project name="platform/prebuilts/build-tools" />
   <remove-project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" />
   <remove-project name="platform/system/bt" />
   <remove-project name="platform/system/core" />
@@ -62,13 +62,12 @@
   <project name="frameworks_av" path="frameworks/av" remote="pie" />
   <project name="frameworks_base" path="frameworks/base" remote="pie" depth="1" />
   <project name="hardware_qcom_bt" path="hardware/qcom/bt" remote="pie" />
+  <project name="hardware_qcom_wlan" path="hardware/qcom/wlan" remote="pie" />
   <project name="packages_apps_Settings" path="packages/apps/Settings" remote="pie" depth="1" />
   <project name="system_core" path="system/core" remote="pie" />
   <project name="system_vold" path="system/vold" remote="pie" />
 
   <!-- AOSP repos -->
-  <project name="platform/external/flex" path="external/flex" remote="aosp" revision="master" />
-  <project name="platform/prebuilts/build-tools" path="prebuilts/build-tools" remote="aosp" revision="master" depth="1" />
   <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" remote="aosp" revision="master" depth="1" />
 
   <!-- AdrianDC repos -->
