@@ -18,6 +18,7 @@
   <remove-project name="platform/build/kati" />
   <remove-project name="platform/build/soong" />
   <remove-project name="platform/external/perfetto" />
+  <remove-project name="platform/external/selinux" />
   <remove-project name="platform/frameworks/av" />
   <remove-project name="platform/frameworks/base" />
   <remove-project name="platform/hardware/interfaces" />
@@ -29,16 +30,17 @@
   <remove-project name="platform/hardware/qcom/power" />
   <remove-project name="platform/hardware/qcom/wlan" />
   <remove-project name="platform/hardware/ril" />
-  <!-- <remove-project name="platform/packages/apps/Camera2" />
+  <!-- <remove-project name="platform/packages/apps/Camera2" /> -->
   <remove-project name="platform/packages/apps/DeskClock" />
   <remove-project name="platform/packages/apps/Dialer" />
   <remove-project name="platform/packages/apps/Gallery2" />
-  <remove-project name="platform/packages/apps/Launcher3" />
-  <remove-project name="platform/packages/apps/Messaging" /> -->
+  <remove-project name="platform/packages/apps/Messaging" />
+  <remove-project name="platform/packages/apps/Music" />
+  <remove-project name="platform/packages/apps/QuickSearchBox" />
   <remove-project name="platform/packages/apps/Settings" />
-  <!-- <remove-project name="platform/packages/inputmethods/LatinIME" /> -->
+  <remove-project name="platform/packages/inputmethods/LatinIME" />
+  <remove-project name="platform/packages/providers/MediaProvider" />
   <remove-project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" />
-  <remove-project name="platform/system/bt" />
   <remove-project name="platform/system/core" />
   <remove-project name="platform/system/vold" />
 
@@ -59,11 +61,13 @@
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
+  <project name="external_selinux" path="external/selinux" remote="pie" />
   <project name="frameworks_av" path="frameworks/av" remote="pie" />
   <project name="frameworks_base" path="frameworks/base" remote="pie" depth="1" />
   <project name="hardware_qcom_bt" path="hardware/qcom/bt" remote="pie" />
   <project name="hardware_qcom_wlan" path="hardware/qcom/wlan" remote="pie" />
   <project name="packages_apps_Settings" path="packages/apps/Settings" remote="pie" depth="1" />
+  <project name="packages_apps_Snap" path="packages/apps/Snap" remote="pie" />
   <project name="system_core" path="system/core" remote="pie" />
   <project name="system_vold" path="system/vold" remote="pie" />
 
@@ -77,18 +81,17 @@
   <project name="aosp_development_sony8960_p" path="hardware/interfaces" remote="adc" revision="hardware_interfaces" />
   <project name="aosp_development_sony8960_p" path="hardware/libhardware" remote="adc" revision="hardware_libhardware" />
   <project name="aosp_development_sony8960_p" path="hardware/ril" remote="adc" revision="hardware_ril" />
-  <project name="aosp_development_sony8960_p" path="system/bt" remote="adc" revision="system_bt" />
-
-  <!-- <project name="aosp_development_sony8960_p" path="packages/apps/Camera2" remote="adc" revision="packages_apps_Camera2" />
   <project name="aosp_development_sony8960_p" path="packages/apps/DeskClock" remote="adc" revision="packages_apps_DeskClock" />
   <project name="aosp_development_sony8960_p" path="packages/apps/Dialer" remote="adc" revision="packages_apps_Dialer" />
-  <project name="aosp_development_sony8960_p" path="packages/apps/Eleven" remote="adc" revision="packages_apps_Eleven" />
   <project name="aosp_development_sony8960_p" path="packages/apps/Gallery2" remote="adc" revision="packages_apps_Gallery2" />
-  <project name="aosp_development_sony8960_p" path="packages/apps/Jelly" remote="adc" revision="packages_apps_Jelly" />
-  <project name="aosp_development_sony8960_p" path="packages/apps/Launcher3" remote="adc" revision="packages_apps_Launcher3" />
   <project name="aosp_development_sony8960_p" path="packages/apps/Messaging" remote="adc" revision="packages_apps_Messaging" />
-  <project name="aosp_development_sony8960_p" path="packages/inputmethods/LatinIME" remote="adc" revision="packages_inputmethods_LatinIME" /> -->
+  <project name="aosp_development_sony8960_p" path="packages/inputmethods/LatinIME" remote="adc" revision="packages_inputmethods_LatinIME" />
+  <project name="aosp_development_sony8960_p" path="packages/providers/MediaProvider" remote="adc" revision="packages_providers_MediaProvider" />
 
+  <!-- <project name="aosp_development_sony8960_p" path="packages/apps/Jelly" remote="adc" revision="packages_apps_Jelly" /> -->
+
+  <!-- <project name="aosp_development_sony8960_p" path="packages/apps/Camera2" remote="adc" revision="packages_apps_Camera2" />
+  <project name="aosp_development_sony8960_p" path="packages/apps/Eleven" remote="adc" revision="packages_apps_Eleven" /> -->
 
   <!-- HALs -->
   <project name="hardware_qcom_audio" path="hardware/qcom/audio" remote="pie" />
@@ -98,9 +101,13 @@
   <!-- Device specific repos -->
   <project name="YumeMichi/device_oneplus_onyx" path="device/oneplus/onyx" remote="github" revision="android-9.0" />
   <project name="YumeMichi/kernel_oneplus_onyx" path="kernel/oneplus/onyx" remote="github" revision="lineage-15.1-sultan" depth="1" />
-  <project name="YumeMichi/vendor_oneplus_onyx" path="vendor/oneplus/onyx" remote="github" revision="android-8.1" depth="1" />
+  <project name="YumeMichi/vendor_oneplus_onyx" path="vendor/oneplus/onyx" remote="github" revision="lineage-15.1-sultan" depth="1" />
 
   <!-- LineageOS repos -->
+  <project name="LineageOS/android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="github" revision="lineage-15.1" />
+
+  <!-- OmniROM repos -->
+  <!-- <project name="omnirom/android_packages_apps_Phonograph" path="packages/apps/Phonograph" remote="github" revision="android-8.1" /> -->
 
   <!-- Repos to remove -->
   <remove-project name="device/generic/arm64" />
