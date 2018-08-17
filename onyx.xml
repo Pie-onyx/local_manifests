@@ -3,13 +3,17 @@
 <manifest>
   <remote  name="github"
            fetch="https://github.com" />
-
   <remote  name="pie"
            fetch="https://github.com/Pie-onyx"
            revision="pie" />
-
   <remote  name="adc"
            fetch="https://github.com/AdrianDC" />
+  <remote  name="lineage"
+           fetch="https://github.com/LineageOS"
+           revision="lineage-16.0" />
+  <remote  name="pixel"
+           fetch="https://github.com/PixelExperience-P"
+           revision="pie" />
 
   <!-- Repos to replace -->
   <remove-project name="platform/bionic" />
@@ -22,11 +26,13 @@
   <remove-project name="platform/external/tinycompress" />
   <remove-project name="platform/frameworks/av" />
   <remove-project name="platform/frameworks/base" />
+  <remove-project name="platform/frameworks/native" />
   <remove-project name="platform/hardware/interfaces" />
   <remove-project name="platform/hardware/libhardware" />
   <remove-project name="platform/hardware/qcom/audio" />
   <remove-project name="platform/hardware/qcom/bt" />
   <remove-project name="platform/hardware/qcom/display" />
+  <remove-project name="platform/hardware/qcom/keymaster" />
   <remove-project name="platform/hardware/qcom/media" />
   <remove-project name="platform/hardware/qcom/power" />
   <remove-project name="platform/hardware/qcom/wlan" />
@@ -62,12 +68,15 @@
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
+  <project name="external_libbfqio" path="external/libbfqio" remote="pie" />
   <project name="external_selinux" path="external/selinux" remote="pie" />
   <project name="external_tinycompress" path="external/tinycompress" remote="pie" />
   <project name="frameworks_av" path="frameworks/av" remote="pie" />
   <project name="frameworks_base" path="frameworks/base" remote="pie" depth="1" />
+  <project name="frameworks_native" path="frameworks/native" remote="pie" />
   <project name="hardware_qcom_bt" path="hardware/qcom/bt" remote="pie" revision="pie-caf" />
-  <project name="hardware_qcom_wlan" path="hardware/qcom/wlan" remote="pie" />
+  <project name="hardware_qcom_keymaster" path="hardware/qcom/keymaster" remote="pie" />
+  <project name="hardware_qcom_wlan" path="hardware/qcom/wlan" remote="pie" revision="pie-caf" />
   <project name="packages_apps_Settings" path="packages/apps/Settings" remote="pie" depth="1" />
   <project name="packages_apps_Snap" path="packages/apps/Snap" remote="pie" />
   <project name="system_bt" path="system/bt" remote="pie" />
@@ -90,13 +99,12 @@
   <project name="aosp_development_sony8960_p" path="packages/apps/Eleven" remote="adc" revision="packages_apps_Eleven" />
   <project name="aosp_development_sony8960_p" path="packages/apps/FMRadio" remote="adc" revision="packages_apps_FMRadio" />
   <project name="aosp_development_sony8960_p" path="packages/apps/Gallery2" remote="adc" revision="packages_apps_Gallery2" />
-  <project name="aosp_development_sony8960_p" path="packages/apps/Jelly" remote="adc" revision="packages_apps_Jelly" />
   <project name="aosp_development_sony8960_p" path="packages/apps/Messaging" remote="adc" revision="packages_apps_Messaging" />
   <project name="aosp_development_sony8960_p" path="packages/inputmethods/LatinIME" remote="adc" revision="packages_inputmethods_LatinIME" />
   <project name="aosp_development_sony8960_p" path="packages/providers/MediaProvider" remote="adc" revision="packages_providers_MediaProvider" />
 
   <!-- HALs -->
-  <project name="hardware_qcom_audio" path="hardware/qcom/audio" remote="pie" />
+  <project name="hardware_qcom_audio" path="hardware/qcom/audio" remote="pie" revision="pie-caf-8974" />
   <project name="hardware_qcom_display" path="hardware/qcom/display" remote="pie" revision="pie-caf-8974" />
   <project name="hardware_qcom_media" path="hardware/qcom/media" remote="pie" revision="pie-caf-8974" />
 
@@ -106,7 +114,14 @@
   <project name="YumeMichi/vendor_oneplus_onyx" path="vendor/oneplus/onyx" remote="github" revision="lineage-15.1-sultan" depth="1" />
 
   <!-- LineageOS repos -->
-  <project name="LineageOS/android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="github" revision="lineage-15.1" />
+  <project name="android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="lineage" revision="lineage-15.1" />
+  <project name="android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="lineage" />
+  <project name="bgcngm/vendor_qcom_opensource_audio" path="vendor/qcom/opensource/audio" remote="github" revision="lineage-16.0" />
+
+  <!-- PixelExperience-P repos -->
+  <project name="external_ant-wireless_ant_native" path="external/ant-wireless/ant_native" remote="pixel" />
+  <project name="external_ant-wireless_ant_service" path="external/ant-wireless/ant_service" remote="pixel" />
+  <project name="external_ant-wireless_antradio-library" path="external/ant-wireless/antradio-library" remote="pixel" />
 
   <!-- Repos to remove -->
   <remove-project name="device/generic/arm64" />
