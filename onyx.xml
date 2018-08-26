@@ -14,12 +14,14 @@
   <remote  name="pixel"
            fetch="https://github.com/PixelExperience-P"
            revision="pie" />
+  <remote  name="omnirom"
+           fetch="https://github.com/omnirom"
+           revision="android-9.0" />
 
   <!-- Repos to replace -->
   <remove-project name="platform/bionic" />
   <remove-project name="platform/bootable/recovery" />
   <remove-project name="platform/build" />
-  <remove-project name="platform/build/kati" />
   <remove-project name="platform/build/soong" />
   <remove-project name="platform/external/perfetto" />
   <remove-project name="platform/external/selinux" />
@@ -27,8 +29,8 @@
   <remove-project name="platform/frameworks/av" />
   <remove-project name="platform/frameworks/base" />
   <remove-project name="platform/frameworks/native" />
-  <remove-project name="platform/hardware/interfaces" />
   <remove-project name="platform/hardware/libhardware" />
+  <remove-project name="platform/hardware/libhardware_legacy" />
   <remove-project name="platform/hardware/qcom/audio" />
   <remove-project name="platform/hardware/qcom/bt" />
   <remove-project name="platform/hardware/qcom/display" />
@@ -49,10 +51,9 @@
   <remove-project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" />
   <remove-project name="platform/system/bt" />
   <remove-project name="platform/system/core" />
-  <remove-project name="platform/system/vold" />
+  <!-- <remove-project name="platform/system/vold" /> -->
 
   <!-- LemonPie repos -->
-  <!-- <project name="patcher" path="patcher" remote="pie" /> -->
   <project name="android" path="android" remote="pie" />
   <project name="bionic" path="bionic" remote="pie" />
   <project name="build_make" path="build/make" remote="pie" >
@@ -68,36 +69,34 @@
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
-  <project name="external_libbfqio" path="external/libbfqio" remote="pie" />
+  <project name="external_exfat" path="external/exfat" remote="pie" />
+  <project name="external_ntfs-3g" path="external/ntfs-3g" remote="pie" />
   <project name="external_selinux" path="external/selinux" remote="pie" />
   <project name="external_tinycompress" path="external/tinycompress" remote="pie" />
   <project name="frameworks_av" path="frameworks/av" remote="pie" />
   <project name="frameworks_base" path="frameworks/base" remote="pie" depth="1" />
   <project name="frameworks_native" path="frameworks/native" remote="pie" />
+  <project name="hardware_libhardware" path="hardware/libhardware" remote="pie" />
+  <project name="hardware_libhardware_legacy" path="hardware/libhardware_legacy" remote="pie" />
   <project name="hardware_qcom_bt" path="hardware/qcom/bt" remote="pie" revision="pie-caf" />
   <project name="hardware_qcom_keymaster" path="hardware/qcom/keymaster" remote="pie" />
+  <project name="hardware_ril" path="hardware/ril" remote="pie" revision="pie-caf" />
   <project name="hardware_qcom_wlan" path="hardware/qcom/wlan" remote="pie" revision="pie-caf" />
   <project name="packages_apps_Settings" path="packages/apps/Settings" remote="pie" depth="1" />
   <project name="packages_apps_Snap" path="packages/apps/Snap" remote="pie" />
   <project name="system_bt" path="system/bt" remote="pie" />
   <project name="system_core" path="system/core" remote="pie" />
-  <project name="system_vold" path="system/vold" remote="pie" />
+  <!-- <project name="system_vold" path="system/vold" remote="pie" /> -->
+  <project name="vendor_aosp" path="vendor/aosp" remote="pie" />
+  <project name="vendor_qcom_opensource_dataservices" path="vendor/qcom/opensource/dataservices" remote="pie" />
 
   <!-- AOSP repos -->
   <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" remote="aosp" revision="master" depth="1" />
 
   <!-- AdrianDC repos -->
   <project name="aosp_development_sony8960_p" path="bootable/recovery" remote="adc" revision="bootable_recovery" />
-  <project name="aosp_development_sony8960_p" path="build/kati" remote="adc" revision="build_kati" />
-  <project name="aosp_development_sony8960_p" path="external/perfetto" remote="adc" revision="external_perfetto" />
-  <project name="aosp_development_sony8960_p" path="hardware/interfaces" remote="adc" revision="hardware_interfaces" />
-  <project name="aosp_development_sony8960_p" path="hardware/libhardware" remote="adc" revision="hardware_libhardware" />
-  <project name="aosp_development_sony8960_p" path="hardware/qcom/fm" remote="adc" revision="hardware_qcom_fm" />
-  <project name="aosp_development_sony8960_p" path="hardware/ril" remote="adc" revision="hardware_ril" />
   <project name="aosp_development_sony8960_p" path="packages/apps/DeskClock" remote="adc" revision="packages_apps_DeskClock" />
   <project name="aosp_development_sony8960_p" path="packages/apps/Dialer" remote="adc" revision="packages_apps_Dialer" />
-  <project name="aosp_development_sony8960_p" path="packages/apps/Eleven" remote="adc" revision="packages_apps_Eleven" />
-  <project name="aosp_development_sony8960_p" path="packages/apps/FMRadio" remote="adc" revision="packages_apps_FMRadio" />
   <project name="aosp_development_sony8960_p" path="packages/apps/Gallery2" remote="adc" revision="packages_apps_Gallery2" />
   <project name="aosp_development_sony8960_p" path="packages/apps/Messaging" remote="adc" revision="packages_apps_Messaging" />
   <project name="aosp_development_sony8960_p" path="packages/inputmethods/LatinIME" remote="adc" revision="packages_inputmethods_LatinIME" />
@@ -109,14 +108,39 @@
   <project name="hardware_qcom_media" path="hardware/qcom/media" remote="pie" revision="pie-caf-8974" />
 
   <!-- Device specific repos -->
-  <project name="YumeMichi/device_oneplus_onyx" path="device/oneplus/onyx" remote="github" revision="pie" />
-  <project name="YumeMichi/kernel_oneplus_onyx" path="kernel/oneplus/onyx" remote="github" revision="lineage-15.1-sultan" depth="1" />
-  <project name="YumeMichi/vendor_oneplus_onyx" path="vendor/oneplus/onyx" remote="github" revision="lineage-15.1-sultan" depth="1" />
+  <project name="YumeMichi/device_oneplus_onyx" path="device/oneplus/onyx" remote="github" revision="android-9.0" />
+  <project name="YumeMichi/kernel_oneplus_onyx" path="kernel/oneplus/onyx" remote="github" revision="lineage-16.0-sultan" depth="1" />
+  <project name="YumeMichi/vendor_oneplus_onyx" path="vendor/oneplus/onyx" remote="github" revision="lineage-16.0-sultan" depth="1" />
+
+  <!-- OmniROM repos -->
+  <project name="android_packages_apps_OmniGears" path="packages/apps/OmniGears" remote="omnirom" />
+  <project name="android_packages_apps_OmniLib" path="packages/apps/OmniLib" remote="omnirom" />
+  <project name="android_packages_apps_OmniStyle" path="packages/apps/OmniStyle" remote="omnirom" />
+  <project name="android_packages_apps_OmniSwitch" path="packages/apps/OmniSwitch" remote="omnirom" />
 
   <!-- LineageOS repos -->
+  <project name="android_external_bash" path="external/bash" remote="lineage" revision="refs/changes/23/224023/1" />
+  <project name="android_external_fuse" path="external/fuse" remote="lineage" revision="lineage-15.1" />
+  <project name="android_external_htop" path="external/htop" remote="lineage" revision="refs/changes/61/225161/1" />
+  <project name="android_external_libncurses" path="external/libncurses" remote="lineage" revision="refs/changes/22/224022/1" />
+  <project name="android_external_nano" path="external/nano" remote="lineage" revision="refs/changes/30/224030/1" />
+  <project name="android_external_openssh" path="external/openssh" remote="lineage" revision="refs/changes/33/224033/1" />
+  <project name="android_external_p7zip" path="external/p7zip" remote="lineage" revision="refs/changes/29/224029/3" />
+  <project name="android_external_perfetto" path="external/perfetto" remote="lineage" revision="refs/changes/13/223413/1" />
+  <project name="android_external_rsync" path="external/rsync" remote="lineage" revision="refs/changes/24/224024/1" />
+  <project name="android_external_unrar" path="external/unrar" remote="lineage" revision="refs/changes/27/224027/1" />
+  <project name="android_external_vim" path="external/vim" remote="lineage" revision="refs/changes/31/224031/1" />
+  <project name="android_external_zip" path="external/zip" remote="lineage" revision="refs/changes/26/224026/1" />
+
+  <project name="android_hardware_qcom_fm" path="hardware/qcom/fm" remote="lineage" revision="refs/changes/86/224386/1" />
+  <!-- <project name="hardware_qcom_fm" path="hardware/qcom/fm" remote="pie" /> -->
+
+  <project name="android_packages_apps_FMRadio" path="packages/apps/FMRadio" remote="lineage" revision="refs/changes/77/223677/1" />
+
   <project name="android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="lineage" revision="lineage-15.1" />
-  <project name="android_packages_resources_devicesettings" path="packages/resources/devicesettings" remote="lineage" />
-  <project name="bgcngm/vendor_qcom_opensource_audio" path="vendor/qcom/opensource/audio" remote="github" revision="lineage-16.0" />
+  <project name="android_packages_apps_Eleven" path="packages/apps/Eleven" remote="lineage" />
+  <project name="android_packages_apps_Jelly" path="packages/apps/Jelly" remote="lineage" />
+  <project name="android_vendor_qcom_opensource_audio" path="vendor/qcom/opensource/audio" remote="lineage" />
 
   <!-- PixelExperience-P repos -->
   <project name="external_ant-wireless_ant_native" path="external/ant-wireless/ant_native" remote="pixel" />
