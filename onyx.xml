@@ -6,8 +6,6 @@
   <remote  name="pie"
            fetch="https://github.com/Pie-onyx"
            revision="pie" />
-  <remote  name="adc"
-           fetch="https://github.com/AdrianDC" />
   <remote  name="lineage"
            fetch="https://github.com/LineageOS"
            revision="lineage-16.0" />
@@ -25,7 +23,7 @@
   <remove-project name="platform/external/tinycompress" />
   <remove-project name="platform/frameworks/av" />
   <remove-project name="platform/frameworks/base" />
-  <remove-project name="platform/frameworks/native" />
+  <!-- <remove-project name="platform/frameworks/native" /> -->
   <remove-project name="platform/hardware/libhardware" />
   <remove-project name="platform/hardware/libhardware_legacy" />
   <remove-project name="platform/hardware/qcom/audio" />
@@ -62,6 +60,7 @@
   <remove-project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" />
   <remove-project name="platform/system/bt" />
   <remove-project name="platform/system/core" />
+  <remove-project name="platform/system/sepolicy" />
   <!-- <remove-project name="platform/system/vold" /> -->
 
   <!-- LemonPie repos -->
@@ -86,7 +85,7 @@
   <project name="external_ntfs-3g" path="external/ntfs-3g" remote="pie" />
   <project name="frameworks_av" path="frameworks/av" remote="pie" />
   <project name="frameworks_base" path="frameworks/base" remote="pie" depth="1" />
-  <project name="frameworks_native" path="frameworks/native" remote="pie" />
+  <!-- <project name="frameworks_native" path="frameworks/native" remote="pie" /> -->
   <project name="hardware_libhardware" path="hardware/libhardware" remote="pie" />
   <project name="hardware_libhardware_legacy" path="hardware/libhardware_legacy" remote="pie" />
   <project name="hardware_qcom_bt" path="hardware/qcom/bt" remote="pie" revision="pie-caf" />
@@ -94,16 +93,19 @@
   <project name="hardware_qcom_wlan" path="hardware/qcom/wlan" remote="pie" revision="pie-caf" />
   <project name="hardware_ril" path="hardware/ril" remote="pie" revision="pie-caf" />
   <project name="packages_apps_Dialer" path="packages/apps/Dialer" remote="pie" />
+  <project name="packages_apps_DocumentsUI" path="packages/apps/DocumentsUI" remote="pie" />
   <project name="packages_apps_Settings" path="packages/apps/Settings" remote="pie" depth="1" />
-  <project name="packages_apps_Snap" path="packages/apps/Snap" remote="pie" />
+  <!-- <project name="packages_apps_Snap" path="packages/apps/Snap" remote="pie" /> -->
+  <project name="system_bt" path="system/bt" remote="pie" />
   <project name="system_core" path="system/core" remote="pie" />
+  <project name="system_sepolicy" path="system/sepolicy" remote="pie" />
   <project name="vendor_aosp" path="vendor/aosp" remote="pie" />
 
   <!-- AOSP repos -->
   <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" remote="aosp" revision="master" depth="1" />
 
   <!-- AdrianDC repos -->
-  <project name="aosp_development_sony8960_p" path="bootable/recovery" remote="adc" revision="bootable_recovery" />
+  <project name="AdrianDC/aosp_development_sony8960_p" path="bootable/recovery" remote="github" revision="bootable_recovery" />
 
   <!-- HALs -->
   <project name="hardware_qcom_audio" path="hardware/qcom/audio" remote="pie" revision="pie-caf-8974" />
@@ -113,7 +115,7 @@
   <!-- Device specific repos -->
   <project name="YumeMichi/device_oneplus_onyx" path="device/oneplus/onyx" remote="github" revision="android-9.0" />
   <project name="YumeMichi/kernel_oneplus_onyx" path="kernel/oneplus/onyx" remote="github" revision="lineage-16.0-sultan" depth="1" />
-  <project name="YumeMichi/vendor_oneplus_onyx" path="vendor/oneplus/onyx" remote="github" revision="lineage-16.0-sultan" depth="1" />
+  <project name="YumeMichi/vendor_oneplus_onyx" path="vendor/oneplus/onyx" remote="github" revision="android-9.0" depth="1" />
 
   <!-- OmniROM repos -->
   <project name="android_packages_apps_Launcher3" path="packages/apps/Launcher3" remote="omnirom" />
@@ -144,31 +146,31 @@
 
   <project name="android_packages_apps_Calendar" path="packages/apps/Calendar" remote="lineage" />
   <project name="android_packages_apps_DeskClock" path="packages/apps/DeskClock" remote="lineage" />
-  <project name="android_packages_apps_DocumentsUI" path="packages/apps/DocumentsUI" remote="lineage" />
   <project name="android_packages_apps_Eleven" path="packages/apps/Eleven" remote="lineage" />
   <project name="android_packages_apps_ExactCalculator" path="packages/apps/ExactCalculator" remote="lineage" />
   <!-- <project name="android_packages_apps_FMRadio" path="packages/apps/FMRadio" remote="lineage" /> -->
   <project name="android_packages_apps_Stk" path="packages/apps/Stk" remote="lineage" />
   <project name="android_packages_apps_Terminal" path="packages/apps/Terminal" remote="lineage" />
   <project name="android_packages_providers_CalendarProvider" path="packages/providers/CalendarProvider" remote="lineage" />
-  <project name="android_packages_providers_DownloadProvider" path="packages/providers/DownloadProvider" remote="lineage" />
 
+  <project name="android_device_lineage_sepolicy" path="device/lineage/sepolicy" remote="lineage" revision="refs/changes/45/225945/1" />
   <project name="android_packages_apps_Contacts" path="packages/apps/Contacts" remote="lineage" revision="refs/changes/76/225276/2" />
   <project name="android_packages_apps_Email" path="packages/apps/Email" remote="lineage" revision="refs/changes/11/225311/4" />
   <project name="android_packages_apps_Messaging" path="packages/apps/Messaging" remote="lineage" revision="refs/changes/37/225337/4" />
   <project name="android_packages_apps_UnifiedEmail" path="packages/apps/UnifiedEmail" remote="lineage" revision="refs/changes/62/225362/1" />
   <project name="android_packages_apps_WallpaperPicker" path="packages/apps/WallpaperPicker" remote="lineage" revision="refs/changes/64/225364/2" />
   <project name="android_packages_inputmethods_LatinIME" path="packages/inputmethods/LatinIME" remote="lineage" revision="refs/changes/02/225402/1" />
+  <project name="android_packages_providers_DownloadProvider" path="packages/providers/DownloadProvider" remote="lineage" revision="refs/changes/93/227193/1" />
   <project name="android_packages_providers_MediaProvider" path="packages/providers/MediaProvider" remote="lineage" revision="refs/changes/12/225412/4" />
-  <project name="android_system_bt" path="system/bt" remote="lineage" revision="refs/changes/23/225423/1" />
   <!-- <project name="android_system_vold" path="system/vold" remote="lineage" revision="refs/changes/48/225948/3" /> -->
 
   <project name="android_external_ant-wireless_antradio-library" path="external/ant-wireless/antradio-library" remote="lineage" />
   <project name="android_external_selinux" path="external/selinux" remote="lineage" />
-  <project name="android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="lineage" revision="lineage-15.1" />
+  <!-- <project name="android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="lineage" revision="lineage-15.1" /> -->
   <project name="android_vendor_qcom_opensource_audio" path="vendor/qcom/opensource/audio" remote="lineage" />
 
   <project name="arco/android_packages_apps_Gallery2" path="packages/apps/Gallery2" remote="github" revision="lineage-16.0" />
+  <project name="Rashed97/android_device_qcom_sepolicy" path="device/qcom/sepolicy" remote="github" revision="lineage-16.0" />
 
   <!-- Repos to remove -->
   <remove-project name="device/generic/arm64" />
@@ -216,6 +218,8 @@
   <remove-project name="platform/hardware/qcom/msm8960" />
   <remove-project name="platform/hardware/qcom/msm8994" />
   <remove-project name="platform/hardware/qcom/msm8996" />
+  <remove-project name="platform/hardware/qcom/msm8998" />
+  <remove-project name="platform/hardware/qcom/msm8x09" />
   <remove-project name="platform/hardware/qcom/msm8x26" />
   <remove-project name="platform/hardware/qcom/msm8x27" />
   <remove-project name="platform/hardware/qcom/msm8x84" />
