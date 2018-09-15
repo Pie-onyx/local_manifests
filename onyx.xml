@@ -12,18 +12,22 @@
   <remote  name="omnirom"
            fetch="https://github.com/omnirom"
            revision="android-9.0" />
+  <remote  name="gitlab"
+           fetch="https://gitlab.com/omnirom"
+           revision="android-9.0" />
 
   <!-- Repos to replace -->
   <remove-project name="platform/bionic" />
   <remove-project name="platform/bootable/recovery" />
   <remove-project name="platform/build" />
   <remove-project name="platform/build/soong" />
+  <remove-project name="platform/external/chromium-webview" />
   <remove-project name="platform/external/perfetto" />
   <remove-project name="platform/external/selinux" />
   <remove-project name="platform/external/tinycompress" />
   <remove-project name="platform/frameworks/av" />
   <remove-project name="platform/frameworks/base" />
-  <!-- <remove-project name="platform/frameworks/native" /> -->
+  <remove-project name="platform/frameworks/native" />
   <remove-project name="platform/hardware/libhardware" />
   <remove-project name="platform/hardware/libhardware_legacy" />
   <remove-project name="platform/hardware/qcom/audio" />
@@ -35,14 +39,14 @@
   <remove-project name="platform/hardware/qcom/wlan" />
   <remove-project name="platform/hardware/ril" />
   <remove-project name="platform/packages/apps/Browser2" />
-  <remove-project name="platform/packages/apps/Calendar" />
   <remove-project name="platform/packages/apps/Camera2" />
+  <remove-project name="platform/packages/apps/Calendar" />
   <remove-project name="platform/packages/apps/Contacts" />
   <remove-project name="platform/packages/apps/DeskClock" />
   <remove-project name="platform/packages/apps/DocumentsUI" />
   <remove-project name="platform/packages/apps/Dialer" />
-  <remove-project name="platform/packages/apps/ExactCalculator" />
   <remove-project name="platform/packages/apps/Email" />
+  <remove-project name="platform/packages/apps/ExactCalculator" />
   <remove-project name="platform/packages/apps/Gallery2" />
   <remove-project name="platform/packages/apps/Launcher3" />
   <remove-project name="platform/packages/apps/Messaging" />
@@ -54,18 +58,24 @@
   <remove-project name="platform/packages/apps/UnifiedEmail" />
   <remove-project name="platform/packages/apps/WallpaperPicker" />
   <remove-project name="platform/packages/inputmethods/LatinIME" />
+  <remove-project name="platform/packages/providers/BlockedNumberProvider" />
+  <remove-project name="platform/packages/providers/BookmarkProvider" />
   <remove-project name="platform/packages/providers/CalendarProvider" />
+  <remove-project name="platform/packages/providers/CallLogProvider" />
+  <remove-project name="platform/packages/providers/ContactsProvider" />
   <remove-project name="platform/packages/providers/DownloadProvider" />
   <remove-project name="platform/packages/providers/MediaProvider" />
+  <remove-project name="platform/packages/services/Mms" />
+  <remove-project name="platform/packages/services/Telecomm" />
+  <remove-project name="platform/packages/services/Telephony" />
   <remove-project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" />
   <remove-project name="platform/system/bt" />
   <remove-project name="platform/system/core" />
-  <remove-project name="platform/system/sepolicy" />
-  <!-- <remove-project name="platform/system/vold" /> -->
 
   <!-- LemonPie repos -->
   <project name="android" path="android" remote="pie" />
   <project name="bionic" path="bionic" remote="pie" />
+  <project name="bootable_recovery" path="bootable/recovery" remote="pie" />
   <project name="build_make" path="build/make" remote="pie" >
     <copyfile src="core/root.mk" dest="Makefile" />
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
@@ -84,28 +94,35 @@
   <project name="external_exfat" path="external/exfat" remote="pie" />
   <project name="external_ntfs-3g" path="external/ntfs-3g" remote="pie" />
   <project name="frameworks_av" path="frameworks/av" remote="pie" />
-  <project name="frameworks_base" path="frameworks/base" remote="pie" depth="1" />
-  <!-- <project name="frameworks_native" path="frameworks/native" remote="pie" /> -->
+  <project name="frameworks_base" path="frameworks/base" remote="pie" />
+  <project name="frameworks_native" path="frameworks/native" remote="pie" />
   <project name="hardware_libhardware" path="hardware/libhardware" remote="pie" />
   <project name="hardware_libhardware_legacy" path="hardware/libhardware_legacy" remote="pie" />
   <project name="hardware_qcom_bt" path="hardware/qcom/bt" remote="pie" revision="pie-caf" />
   <project name="hardware_qcom_fm" path="hardware/qcom/fm" remote="pie" />
+  <project name="hardware_qcom_keymaster" path="hardware/qcom/keymaster" remote="pie" />
   <project name="hardware_qcom_wlan" path="hardware/qcom/wlan" remote="pie" revision="pie-caf" />
   <project name="hardware_ril" path="hardware/ril" remote="pie" revision="pie-caf" />
+  <project name="packages_apps_Contacts" path="packages/apps/Contacts" remote="pie" />
   <project name="packages_apps_Dialer" path="packages/apps/Dialer" remote="pie" />
   <project name="packages_apps_DocumentsUI" path="packages/apps/DocumentsUI" remote="pie" />
-  <project name="packages_apps_Settings" path="packages/apps/Settings" remote="pie" depth="1" />
-  <!-- <project name="packages_apps_Snap" path="packages/apps/Snap" remote="pie" /> -->
+  <project name="packages_apps_Gallery2" path="packages/apps/Gallery2" remote="pie" />
+  <project name="packages_apps_Launcher3" path="packages/apps/Launcher3" remote="pie" />
+  <project name="packages_apps_Messaging" path="packages/apps/Messaging" remote="pie" />
+  <project name="packages_apps_OmniGears" path="packages/apps/OmniGears" remote="pie" />
+  <project name="packages_apps_OmniStyle" path="packages/apps/OmniStyle" remote="pie" />
+  <project name="packages_apps_Settings" path="packages/apps/Settings" remote="pie" />
+  <project name="packages_apps_WallpaperPicker" path="packages/apps/WallpaperPicker" remote="pie" />
+  <project name="packages_providers_MediaProvider" path="packages/providers/MediaProvider" remote="pie" />
+  <project name="packages_services_Telecomm" path="packages/services/Telecomm" remote="pie" />
+  <project name="packages_services_Telephony" path="packages/services/Telephony" remote="pie" />
   <project name="system_bt" path="system/bt" remote="pie" />
   <project name="system_core" path="system/core" remote="pie" />
-  <project name="system_sepolicy" path="system/sepolicy" remote="pie" />
-  <project name="vendor_aosp" path="vendor/aosp" remote="pie" />
+  <project name="vendor_lemon" path="vendor/lemon" remote="pie" />
+  <project name="vendor_qcom_opensource_dataservices" path="vendor/qcom/opensource/dataservices" remote="pie" />
 
   <!-- AOSP repos -->
   <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" remote="aosp" revision="master" depth="1" />
-
-  <!-- AdrianDC repos -->
-  <project name="AdrianDC/aosp_development_sony8960_p" path="bootable/recovery" remote="github" revision="bootable_recovery" />
 
   <!-- HALs -->
   <project name="hardware_qcom_audio" path="hardware/qcom/audio" remote="pie" revision="pie-caf-8974" />
@@ -118,59 +135,49 @@
   <project name="YumeMichi/vendor_oneplus_onyx" path="vendor/oneplus/onyx" remote="github" revision="android-9.0" depth="1" />
 
   <!-- OmniROM repos -->
-  <project name="android_packages_apps_Launcher3" path="packages/apps/Launcher3" remote="omnirom" />
-  <project name="android_packages_apps_OmniGears" path="packages/apps/OmniGears" remote="omnirom" />
+  <project name="android_packages_apps_OmniChromium" path="packages/apps/OmniChromium" remote="gitlab" depth="1" />
+  <project name="android_packages_apps_OmniClock" path="packages/apps/OmniClock" remote="omnirom" />
   <project name="android_packages_apps_OmniLib" path="packages/apps/OmniLib" remote="omnirom" />
-  <project name="android_packages_apps_OmniStyle" path="packages/apps/OmniStyle" remote="omnirom" />
   <project name="android_packages_apps_OmniSwitch" path="packages/apps/OmniSwitch" remote="omnirom" />
   <project name="android_packages_apps_SettingsIntelligence" path="packages/apps/SettingsIntelligence" remote="omnirom" />
   <project name="android_packages_services_OmniJaws" path="packages/services/OmniJaws" remote="omnirom" />
 
   <!-- LineageOS repos -->
-  <project name="android_external_bash" path="external/bash" remote="lineage" revision="refs/changes/23/224023/1" />
-  <project name="android_external_fuse" path="external/fuse" remote="lineage" revision="lineage-15.1" />
-  <project name="android_external_htop" path="external/htop" remote="lineage" revision="refs/changes/61/225161/1" />
-  <project name="android_external_libncurses" path="external/libncurses" remote="lineage" revision="refs/changes/22/224022/1" />
-  <project name="android_external_nano" path="external/nano" remote="lineage" revision="refs/changes/30/224030/1" />
-  <project name="android_external_openssh" path="external/openssh" remote="lineage" revision="refs/changes/33/224033/1" />
-  <project name="android_external_p7zip" path="external/p7zip" remote="lineage" revision="refs/changes/29/224029/3" />
+
   <project name="android_external_perfetto" path="external/perfetto" remote="lineage" revision="refs/changes/13/223413/1" />
-  <project name="android_external_rsync" path="external/rsync" remote="lineage" revision="refs/changes/24/224024/1" />
   <project name="android_external_tinycompress" path="external/tinycompress" remote="lineage" revision="refs/changes/13/223013/5" />
-  <project name="android_external_unrar" path="external/unrar" remote="lineage" revision="refs/changes/27/224027/1" />
-  <project name="android_external_vim" path="external/vim" remote="lineage" revision="refs/changes/31/224031/1" />
-  <project name="android_external_zip" path="external/zip" remote="lineage" revision="refs/changes/26/224026/1" />
-
-  <!-- <project name="android_hardware_qcom_fm" path="hardware/qcom/fm" remote="lineage" revision="refs/changes/86/224386/1" /> -->
-  <project name="android_hardware_qcom_keymaster" path="hardware/qcom/keymaster" remote="lineage" revision="refs/changes/54/224954/1" />
-
-  <project name="android_packages_apps_Calendar" path="packages/apps/Calendar" remote="lineage" />
-  <project name="android_packages_apps_DeskClock" path="packages/apps/DeskClock" remote="lineage" />
-  <project name="android_packages_apps_Eleven" path="packages/apps/Eleven" remote="lineage" />
-  <project name="android_packages_apps_ExactCalculator" path="packages/apps/ExactCalculator" remote="lineage" />
-  <!-- <project name="android_packages_apps_FMRadio" path="packages/apps/FMRadio" remote="lineage" /> -->
-  <project name="android_packages_apps_Stk" path="packages/apps/Stk" remote="lineage" />
-  <project name="android_packages_apps_Terminal" path="packages/apps/Terminal" remote="lineage" />
-  <project name="android_packages_providers_CalendarProvider" path="packages/providers/CalendarProvider" remote="lineage" />
-
-  <project name="android_device_lineage_sepolicy" path="device/lineage/sepolicy" remote="lineage" revision="refs/changes/45/225945/1" />
-  <project name="android_packages_apps_Contacts" path="packages/apps/Contacts" remote="lineage" revision="refs/changes/76/225276/2" />
-  <project name="android_packages_apps_Email" path="packages/apps/Email" remote="lineage" revision="refs/changes/11/225311/4" />
-  <project name="android_packages_apps_Messaging" path="packages/apps/Messaging" remote="lineage" revision="refs/changes/37/225337/4" />
-  <project name="android_packages_apps_UnifiedEmail" path="packages/apps/UnifiedEmail" remote="lineage" revision="refs/changes/62/225362/1" />
-  <project name="android_packages_apps_WallpaperPicker" path="packages/apps/WallpaperPicker" remote="lineage" revision="refs/changes/64/225364/2" />
-  <project name="android_packages_inputmethods_LatinIME" path="packages/inputmethods/LatinIME" remote="lineage" revision="refs/changes/02/225402/1" />
-  <project name="android_packages_providers_DownloadProvider" path="packages/providers/DownloadProvider" remote="lineage" revision="refs/changes/93/227193/1" />
-  <project name="android_packages_providers_MediaProvider" path="packages/providers/MediaProvider" remote="lineage" revision="refs/changes/12/225412/4" />
-  <!-- <project name="android_system_vold" path="system/vold" remote="lineage" revision="refs/changes/48/225948/3" /> -->
 
   <project name="android_external_ant-wireless_antradio-library" path="external/ant-wireless/antradio-library" remote="lineage" />
+  <project name="android_external_bash" path="external/bash" remote="lineage" />
+  <project name="android_external_fuse" path="external/fuse" remote="lineage" revision="lineage-15.1" />
+  <project name="android_external_htop" path="external/htop" remote="lineage" />
+  <project name="android_external_libncurses" path="external/libncurses" remote="lineage" />
+  <project name="android_external_nano" path="external/nano" remote="lineage" />
+  <project name="android_external_openssh" path="external/openssh" remote="lineage" />
+  <project name="android_external_p7zip" path="external/p7zip" remote="lineage" />
+  <project name="android_external_rsync" path="external/rsync" remote="lineage" />
   <project name="android_external_selinux" path="external/selinux" remote="lineage" />
-  <!-- <project name="android_external_sony_boringssl-compat" path="external/sony/boringssl-compat" remote="lineage" revision="lineage-15.1" /> -->
-  <project name="android_vendor_qcom_opensource_audio" path="vendor/qcom/opensource/audio" remote="lineage" />
+  <project name="android_external_unrar" path="external/unrar" remote="lineage" />
+  <project name="android_external_vim" path="external/vim" remote="lineage" />
+  <project name="android_external_zip" path="external/zip" remote="lineage" />
+  <project name="android_packages_apps_Calendar" path="packages/apps/Calendar" remote="lineage" />
+  <project name="android_packages_apps_Eleven" path="packages/apps/Eleven" remote="lineage" />
+  <project name="android_packages_apps_ExactCalculator" path="packages/apps/ExactCalculator" remote="lineage" />
+  <project name="android_packages_apps_FMRadio" path="packages/apps/FMRadio" remote="lineage" />
+  <project name="android_packages_apps_Terminal" path="packages/apps/Terminal" remote="lineage" />
+  <project name="android_packages_providers_BlockedNumberProvider" path="packages/providers/BlockedNumberProvider" remote="lineage" />
+  <project name="android_packages_providers_BookmarkProvider" path="packages/providers/BookmarkProvider" remote="lineage" />
+  <project name="android_packages_providers_CalendarProvider" path="packages/providers/CalendarProvider" remote="lineage" />
+  <project name="android_packages_providers_CallLogProvider" path="packages/providers/CallLogProvider" remote="lineage" />
+  <project name="android_packages_providers_ContactsProvider" path="packages/providers/ContactsProvider" remote="lineage" />
+  <project name="android_packages_providers_DownloadProvider" path="packages/providers/DownloadProvider" remote="lineage" />
+  <project name="android_packages_services_Mms" path="packages/services/Mms" remote="lineage" />
 
-  <project name="arco/android_packages_apps_Gallery2" path="packages/apps/Gallery2" remote="github" revision="lineage-16.0" />
-  <project name="Rashed97/android_device_qcom_sepolicy" path="device/qcom/sepolicy" remote="github" revision="lineage-16.0" />
+  <project name="android_packages_apps_Email" path="packages/apps/Email" remote="lineage" revision="refs/changes/11/225311/4" />
+  <project name="android_packages_apps_UnifiedEmail" path="packages/apps/UnifiedEmail" remote="lineage" revision="refs/changes/62/225362/1" />
+  <project name="android_packages_inputmethods_LatinIME" path="packages/inputmethods/LatinIME" remote="lineage" revision="refs/changes/02/225402/1" />
+
+  <project name="android_vendor_qcom_opensource_audio" path="vendor/qcom/opensource/audio" remote="lineage" />
 
   <!-- Repos to remove -->
   <remove-project name="device/generic/arm64" />
